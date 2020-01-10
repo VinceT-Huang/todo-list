@@ -1,43 +1,58 @@
 import React from 'react'
 import './component.scss'
+import UploadFile from 'components/UploadFile'
 
-interface IProps {
+type IProps = {
+  counter: number
+  data: number
+  addDispatch: () => void
+  lessDispatch: () => void
+  getAsyncData: () => void
+}
+type IState = {
 
 }
-interface IState {
 
-}
-let aa: string = ""
+class Root extends React.Component<IProps, IState>{
 
-class Robot extends React.Component<IProps, IState>{
-
-  // 成员属性、状态的声明，均在构造函数内部
-  constructor(props: IProps) {
-    super(props)
-
-    this.state = {
-      turnOn: false,
+  clickHandler = (type: string): void => {
+    switch(type) {
+      case 'add':
+        this.props.addDispatch()
+        break
+      case 'less':
+        this.props.lessDispatch()
+        break
+      case 'now':
+        this.props.getAsyncData()
+        break
+      default:
+        break
     }
   }
 
-  xxxHandler() {
-  }
-
   componentWillMount() {
-    // ...
   }
 
   componentDidMount() {
-    // ...
   }
 
   render () {
     return (
       <div className='Robot-component'>
-        ddd
+        <div>
+          <span>{this.props.counter}</span>
+          <button onClick={() => this.clickHandler('add')}>+</button>
+          <button onClick={() => this.clickHandler('less')}>-</button>
+        </div>
+        <div>
+          {this.props.data}
+          <button onClick={() => this.clickHandler('now')}>now</button>
+        </div>
+        <UploadFile></UploadFile>
       </div>
     )
   }
 }
 
-export default Robot
+export default Root

@@ -1,12 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Root from './routes/Root/component'
+import Root from 'routes/Root'
+import {Provider} from 'react-redux'
+import store from 'store/store'
 
 function App() {
   return (
     <div className="App">
-      <Root/>
+      <Provider
+        store={store}
+      >
+        <Root/>
+      </Provider>
     </div>
   );
 }
