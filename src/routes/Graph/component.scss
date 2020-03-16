@@ -1,0 +1,35 @@
+.graph-component {
+  position: relative;
+  height: calc(100vh);
+  width: calc(100vw);
+  .paint{
+    position: absolute;
+    margin: auto;
+    border: 1px solid #000;
+    width: 700px;
+    height: 700px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    .node-item {
+      position: absolute;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      text-align: center;
+      line-height: 50px;
+      font-size: 20px;
+    }
+  }
+  .btn-area {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    .operate-btn{
+      float: right;
+      margin-left: 12px
+    }
+  }
+}

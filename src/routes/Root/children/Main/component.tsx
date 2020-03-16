@@ -1,8 +1,7 @@
 import React from 'react'
 import './component.scss'
 import {Route, HashRouter, Switch, withRouter} from 'react-router-dom'
-
-import Main from './children/Main'
+import ExportService from './children/ExportService'
 
 type IProps = {
   match: any
@@ -14,29 +13,29 @@ type IState = {
 
 }
 
-class Root extends React.Component<IProps, IState>{
+class Main extends React.Component<IProps, IState>{
   componentWillMount() {
-    console.log('Root will Mount')
+    console.log('Main will Mount')
   }
   componentDidMount() {
-    console.log('Root Did Mount')
+    console.log('Main Did Mount')
   }
   componentDidUpdate() {
-    console.log('Root Did Update')
+    console.log('Main Did Update')
   }
   componentWillUnmount() {
-    console.log('Root will unMount')
+    console.log('Main will unMount')
   }
   render () {
     const {match} = this.props
     return (
       <div className='Robot-component'>
         <HashRouter>
-          <Route path={`${match.url}/main`} component={withRouter(Main)}></Route>
+          <Route path={`${match.url}/exportService`} component={withRouter(ExportService)}></Route>
         </HashRouter>
       </div>
     )
   }
 }
 
-export default Root
+export default Main
